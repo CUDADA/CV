@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h2>jQuery的版本</h2>
+<blockquote><p>官网下载地址：<a href='http://jquery.com/download/'>http://jquery.com/download/</a>
+jQuery版本有很多，分为1.x 2.x 3.x</p>
+</blockquote>
+<p>&nbsp;</p>
+<p>大版本分类：</p>
+<pre><code class='language-javascript' lang='javascript'>1.x版本：能够兼容IE678浏览器
+2.x版本：不兼容IE678浏览器
+1.x和2.x版本jquery都不再更新版本了，现在只更新3.x版本。
+
+3.x版本：不兼容IE678，更加的精简（在国内不流行，因为国内使用jQuery的主要目的就是兼容IE678）
+</code></pre>
+<p>&nbsp;</p>
+<p>关于压缩版和未压缩版</p>
+<pre><code class='language-javascript' lang='javascript'>jquery-1.12.4.min.js:压缩版本，适用于生产环境，因为文件比较小，去除了注释、换行、空格等东西，但是基本没有颗阅读性。
+jquery-1.12.4.js:未压缩版本，适用于学习与开发环境，源码清晰，易阅读。
+</code></pre>
+<p>&nbsp;</p>
+<h2>jQuery的入口函数</h2>
+<p>使用jQuery的三个步骤：</p>
+<pre><code class='language-javascript' lang='javascript'>1. 引入jQuery文件
+2. 入口函数
+3. 功能实现
+</code></pre>
+<p>&nbsp;</p>
+<p>关于jQuery的入口函数：</p>
+<pre><code class='language-javascript' lang='javascript'>//第一种写法
+$(document).ready(function() {
+	
+});
+//第二种写法
+$(function() {
+	
+});
+</code></pre>
+<p>&nbsp;</p>
+<p>jQuery入口函数与js入口函数的对比</p>
+<pre><code class='language-javascript' lang='javascript'>1.	JavaScript的入口函数要等到页面中所有资源（包括图片、文件）加载完成才开始执行。
+2.	jQuery的入口函数只会等待文档树加载完成就开始执行，并不会等待图片、文件的加载。
+</code></pre>
+<p>&nbsp;</p>
+<h2>jQuery对象与DOM对象的区别（重点）</h2>
+<pre><code class='language-javascript' lang='javascript'>1. DOM对象：使用JavaScript中的方法获取页面中的元素返回的对象就是dom对象。
+2. jQuery对象：jquery对象就是使用jquery的方法获取页面中的元素返回的对象就是jQuery对象。
+3. jQuery对象其实就是DOM对象的包装集（包装了DOM对象的集合（伪数组））
+4. DOM对象与jQuery对象的方法不能混用。
+</code></pre>
+<p>&nbsp;</p>
+<p>DOM对象转换成jQuery对象：【联想记忆：花钱】</p>
+<pre><code class='language-javascript' lang='javascript'>var $obj = $(domObj);
+// $(document).ready(function(){});就是典型的DOM对象转jQuery对象
+
+</code></pre>
+<p>&nbsp;</p>
+<p>jQuery对象转换成DOM对象：</p>
+<pre><code class='language-javascript' lang='javascript'>var $li = $(“li”);
+//第一种方法（推荐使用）
+$li[0]
+//第二种方法
+$li.get(0)
+
+</code></pre>
+<p>&nbsp;</p>
+</body>
+</html>

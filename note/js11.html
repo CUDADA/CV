@@ -1,0 +1,339 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h2>正则表达式</h2>
+<ul>
+<li>了解正则表达式基本语法</li>
+<li>能够使用JavaScript的正则对象</li>
+
+</ul>
+<h3>正则表达式简介</h3>
+<h4>什么是正则表达式</h4>
+<p>正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用。正则表通常被用来检索、替换那些符合某个模式(规则)的文本。
+正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</p>
+<h4>正则表达式的作用</h4>
+<ol>
+<li>给定的字符串是否符合正则表达式的过滤逻辑(匹配)</li>
+<li>可以通过正则表达式，从字符串中获取我们想要的特定部分(提取)</li>
+<li>强大的字符串替换能力(替换)</li>
+
+</ol>
+<h4>正则表达式的特点</h4>
+<ol>
+<li>灵活性、逻辑性和功能性非常的强</li>
+<li>可以迅速地用极简单的方式达到字符串的复杂控制</li>
+<li>对于刚接触的人来说，比较晦涩难懂</li>
+
+</ol>
+<h3>正则表达式的测试</h3>
+<ul>
+<li><p><a href='https://c.runoob.com/front-end/854'>在线测试正则</a></p>
+</li>
+<li><p>工具中使用正则表达式</p>
+<ul>
+<li>sublime/vscode/word</li>
+<li>演示替换所有的数字</li>
+
+</ul>
+</li>
+
+</ul>
+<h3>正则表达式的组成</h3>
+<ul>
+<li>普通字符</li>
+<li>特殊字符(元字符)：正则表达式中有特殊意义的字符</li>
+
+</ul>
+<p>示例演示：</p>
+<ul>
+<li><code>\d</code> 匹配数字</li>
+<li><code>ab\d</code> 匹配 ab1、ab2</li>
+
+</ul>
+<h3>元字符串</h3>
+<p>通过测试工具演示下面元字符的使用</p>
+<h4>常用元字符串</h4>
+<figure><table>
+<thead>
+<tr><th>元字符</th><th>说明</th></tr></thead>
+<tbody><tr><td>\d</td><td>匹配数字</td></tr><tr><td>\D</td><td>匹配任意非数字的字符</td></tr><tr><td>\w</td><td>匹配字母或数字或下划线</td></tr><tr><td>\W</td><td>匹配任意不是字母，数字，下划线</td></tr><tr><td>\s</td><td>匹配任意的空白符</td></tr><tr><td>\S</td><td>匹配任意不是空白符的字符</td></tr><tr><td>.</td><td>匹配除换行符以外的任意单个字符</td></tr><tr><td>^</td><td>表示匹配行首的文本(以谁开始)</td></tr><tr><td>$</td><td>表示匹配行尾的文本(以谁结束)</td></tr></tbody>
+</table></figure>
+<h4>限定符</h4>
+<figure><table>
+<thead>
+<tr><th>限定符</th><th>说明</th></tr></thead>
+<tbody><tr><td>*</td><td>重复零次或更多次</td></tr><tr><td>+</td><td>重复一次或更多次</td></tr><tr><td>?</td><td>重复零次或一次</td></tr><tr><td>{n}</td><td>重复n次</td></tr><tr><td>{n,}</td><td>重复n次或更多次</td></tr><tr><td>{n,m}</td><td>重复n到m次</td></tr></tbody>
+</table></figure>
+<h4>其它</h4>
+<pre><code>[] 字符串用中括号括起来，表示匹配其中的任一字符，相当于或的意思
+[^]  匹配除中括号以内的内容
+\ 转义符
+| 或者，选择两者中的一个。注意|将左右两边分为两部分，而不管左右两边有多长多乱
+() 从两个直接量中选择一个，分组
+   eg：gr(a|e)y匹配gray和grey
+[\u4e00-\u9fa5]  匹配汉字
+
+</code></pre>
+<h3>案例</h3>
+<p>验证手机号：</p>
+<pre><code class='language-javascript' lang='javascript'>^\d{11}$
+</code></pre>
+<p>验证邮编：</p>
+<pre><code class='language-javascript' lang='javascript'>^\d{6}$
+</code></pre>
+<p>验证日期 2012-5-01</p>
+<pre><code class='language-javascript' lang='javascript'>^\d{4}-\d{1,2}-\d{1,2}$
+</code></pre>
+<p>验证邮箱 <a href='mailto:xxx@itcast.cn' target='_blank' class='url'>xxx@itcast.cn</a>：</p>
+<pre><code class='language-javascript' lang='javascript'>^\w+@\w+\.\w+$
+</code></pre>
+<p>验证IP地址 192.168.1.10</p>
+<pre><code class='language-javascript' lang='javascript'>^\d{1,3}\(.\d{1,3}){3}$
+</code></pre>
+<h2>JavaScript 中使用正则表达式</h2>
+<h3>创建正则对象</h3>
+<p>方式1：</p>
+<pre><code class='language-javascript' lang='javascript'>var reg = new Regex(&#39;\d&#39;, &#39;i&#39;);
+var reg = new Regex(&#39;\d&#39;, &#39;gi&#39;);
+</code></pre>
+<p>方式2：</p>
+<pre><code class='language-javascript' lang='javascript'>var reg = /\d/i;
+var reg = /\d/gi;
+</code></pre>
+<h4>参数</h4>
+<figure><table>
+<thead>
+<tr><th>标志</th><th>说明</th></tr></thead>
+<tbody><tr><td>i</td><td>忽略大小写</td></tr><tr><td>g</td><td>全局匹配</td></tr><tr><td>gi</td><td>全局匹配+忽略大小写</td></tr></tbody>
+</table></figure>
+<h3>正则匹配</h3>
+<pre><code class='language-javascript' lang='javascript'>// 匹配日期
+var dateStr = &#39;2015-10-10&#39;;
+var reg = /^\d{4}-\d{1,2}-\d{1,2}$/
+console.log(reg.test(dateStr));
+</code></pre>   
+<pre><code>
+    console.log(/./.test(&quot;除了回车换行以为的任意字符&quot;));//true
+    console.log(/.*/.test(&quot;0个到多个&quot;));//true
+    console.log(/.+/.test(&quot;1个到多个&quot;));//true
+    console.log(/.?/.test(&quot;哈哈&quot;));//true
+    console.log(/[0-9]/.test(&quot;9527&quot;));//true
+    console.log(/[a-z]/.test(&quot;what&quot;));//true
+    console.log(/[A-Z]/.test(&quot;Are&quot;));//true
+    console.log(/[a-zA-Z]/.test(&quot;干啥子&quot;));//false
+    console.log(/[0-9a-zA-Z]/.test(&quot;9ebg&quot;));//true
+    console.log(/b|(ara)/.test(&quot;abra&quot;));//true
+    console.log(/[a-z]{2,3}/.test(&quot;arfsf&quot;));//true
+    console.log(/\d/.test(&quot;998&quot;));//true
+    console.log(/\d*/.test(&quot;998&quot;));//true
+    console.log(/\d+/.test(&quot;998&quot;));//true
+    console.log(/\d{0,}/.test(&quot;998&quot;));//true
+    console.log(/\d{2,3}/.test(&quot;998&quot;));//true
+    console.log(/\D/.test(&quot;eat&quot;));//true
+    console.log(/\s/.test(&quot;  &quot;));//true
+    console.log(/\S/.test(&quot;嘎嘎&quot;));//true
+    console.log(/\w/.test(&quot;_&quot;));//true
+    console.log(/\W/.test(&quot;_&quot;));//true
+</code></pre>
+<p>正则表达式案例</p>
+1.验证密码强弱 </br>
+2.验证邮箱：[0-9a-zA-Z<em>.-]+[@][0-9a-zA-Z.</em>-]+([.][a-zA-Z]+){1,2}</br>
+3.验证中文名字[\u4e00-\u9fa5]</br>
+<h3>正则提取</h3>
+<pre><code class='language-javascript' lang='javascript'>// 1. 提取工资
+var str = &quot;张三：1000，李四：5000，王五：8000。&quot;;
+var array = str.match(/\d+/g);
+console.log(array);
+
+// 2. 提取email地址
+var str = &quot;123123@xx.com,fangfang@valuedopinions.cn 286669312@qq.com 2、emailenglish@emailenglish.englishtown.com 286669312@qq.com...&quot;;
+var array = str.match(/\w+@\w+\.\w+(\.\w+)?/g);
+console.log(array);
+
+// 3. 分组提取  
+// 3. 提取日期中的年部分  2015-5-10
+var dateStr = &#39;2016-1-5&#39;;
+// 正则表达式中的()作为分组来使用，获取分组匹配到的结果用Regex.$1 $2 $3....来获取
+var reg = /(\d{4})-\d{1,2}-\d{1,2}/;
+if (reg.test(dateStr)) {
+  console.log(RegExp.$1);
+}
+
+// 4. 提取邮件中的每一部分
+var reg = /(\w+)@(\w+)\.(\w+)(\.\w+)?/;
+var str = &quot;123123@xx.com&quot;;
+if (reg.test(str)) {
+  console.log(RegExp.$1);
+  console.log(RegExp.$2);
+  console.log(RegExp.$3);
+}
+</code></pre>
+<h3>正则替换</h3>
+<pre><code class='language-javascript' lang='javascript'>// 1. 替换所有空白
+var str = &quot;   123AD  asadf   asadfasf  adf &quot;;
+str = str.replace(/\s/g,&quot;xx&quot;);
+console.log(str);
+
+// 2. 替换所有,|，
+var str = &quot;abc,efg,123，abc,123，a&quot;;
+str = str.replace(/,|，/g, &quot;.&quot;);
+console.log(str);
+</code></pre>
+<h3>案例：表单验证</h3>
+<pre><code class='language-html' lang='html'>QQ号：&lt;input type=&quot;text&quot; id=&quot;txtQQ&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+邮箱：&lt;input type=&quot;text&quot; id=&quot;txtEMail&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+手机：&lt;input type=&quot;text&quot; id=&quot;txtPhone&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+生日：&lt;input type=&quot;text&quot; id=&quot;txtBirthday&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+姓名：&lt;input type=&quot;text&quot; id=&quot;txtName&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+</code></pre>
+<pre><code class='language-javascript' lang='javascript'>//获取文本框
+var txtQQ = document.getElementById(&quot;txtQQ&quot;);
+var txtEMail = document.getElementById(&quot;txtEMail&quot;);
+var txtPhone = document.getElementById(&quot;txtPhone&quot;);
+var txtBirthday = document.getElementById(&quot;txtBirthday&quot;);
+var txtName = document.getElementById(&quot;txtName&quot;);
+
+//
+txtQQ.onblur = function () {
+  //获取当前文本框对应的span
+  var span = this.nextElementSibling;
+  var reg = /^\d{5,12}$/;
+  //判断验证是否成功
+  if(!reg.test(this.value) ){
+    //验证不成功
+    span.innerText = &quot;请输入正确的QQ号&quot;;
+    span.style.color = &quot;red&quot;;
+  }else{
+    //验证成功
+    span.innerText = &quot;&quot;;
+    span.style.color = &quot;&quot;;
+  }
+};
+
+//txtEMail
+txtEMail.onblur = function () {
+  //获取当前文本框对应的span
+  var span = this.nextElementSibling;
+  var reg = /^\w+@\w+\.\w+(\.\w+)?$/;
+  //判断验证是否成功
+  if(!reg.test(this.value) ){
+    //验证不成功
+    span.innerText = &quot;请输入正确的EMail地址&quot;;
+    span.style.color = &quot;red&quot;;
+  }else{
+    //验证成功
+    span.innerText = &quot;&quot;;
+    span.style.color = &quot;&quot;;
+  }
+};
+</code></pre>
+<p>表单验证部分，封装成函数：</p>
+<pre><code class='language-javascript' lang='javascript'>var regBirthday = /^\d{4}-\d{1,2}-\d{1,2}$/;
+addCheck(txtBirthday, regBirthday, &quot;请输入正确的出生日期&quot;);
+//给文本框添加验证
+function addCheck(element, reg, tip) {
+  element.onblur = function () {
+    //获取当前文本框对应的span
+    var span = this.nextElementSibling;
+    //判断验证是否成功
+    if(!reg.test(this.value) ){
+      //验证不成功
+      span.innerText = tip;
+      span.style.color = &quot;red&quot;;
+    }else{
+      //验证成功
+      span.innerText = &quot;&quot;;
+      span.style.color = &quot;&quot;;
+    }
+  };
+}
+</code></pre>
+<p>通过给元素增加自定义验证属性对表单进行验证：</p>
+<pre><code class='language-html' lang='html'>&lt;form id=&quot;frm&quot;&gt;
+  QQ号：&lt;input type=&quot;text&quot; name=&quot;txtQQ&quot; data-rule=&quot;qq&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+  邮箱：&lt;input type=&quot;text&quot; name=&quot;txtEMail&quot; data-rule=&quot;email&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+  手机：&lt;input type=&quot;text&quot; name=&quot;txtPhone&quot; data-rule=&quot;phone&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+  生日：&lt;input type=&quot;text&quot; name=&quot;txtBirthday&quot; data-rule=&quot;date&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+  姓名：&lt;input type=&quot;text&quot; name=&quot;txtName&quot; data-rule=&quot;cn&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;br&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class='language-javascript' lang='javascript'>// 所有的验证规则
+var rules = [
+  {
+    name: &#39;qq&#39;,
+    reg: /^\d{5,12}$/,
+    tip: &quot;请输入正确的QQ&quot;
+  },
+  {
+    name: &#39;email&#39;,
+    reg: /^\w+@\w+\.\w+(\.\w+)?$/,
+    tip: &quot;请输入正确的邮箱地址&quot;
+  },
+  {
+    name: &#39;phone&#39;,
+    reg: /^\d{11}$/,
+    tip: &quot;请输入正确的手机号码&quot;
+  },
+  {
+    name: &#39;date&#39;,
+    reg: /^\d{4}-\d{1,2}-\d{1,2}$/,
+    tip: &quot;请输入正确的出生日期&quot;
+  },
+  {
+    name: &#39;cn&#39;,
+    reg: /^[\u4e00-\u9fa5]{2,4}$/,
+    tip: &quot;请输入正确的姓名&quot;
+  }];
+
+addCheck(&#39;frm&#39;);
+
+
+//给文本框添加验证
+function addCheck(formId) {
+  var i = 0,
+      len = 0,
+      frm =document.getElementById(formId);
+  len = frm.children.length;
+  for (; i &lt; len; i++) {
+    var element = frm.children[i];
+    // 表单元素中有name属性的元素添加验证
+    if (element.name) {
+      element.onblur = function () {
+        // 使用dataset获取data-自定义属性的值
+        var ruleName = this.dataset.rule;
+        var rule =getRuleByRuleName(rules, ruleName);
+
+        var span = this.nextElementSibling;
+        //判断验证是否成功
+        if(!rule.reg.test(this.value) ){
+          //验证不成功
+          span.innerText = rule.tip;
+          span.style.color = &quot;red&quot;;
+        }else{
+          //验证成功
+          span.innerText = &quot;&quot;;
+          span.style.color = &quot;&quot;;
+        }
+      }
+    }
+  }
+}
+
+// 根据规则的名称获取规则对象
+function getRuleByRuleName(rules, ruleName) {
+  var i = 0,
+      len = rules.length;
+  var rule = null;
+  for (; i &lt; len; i++) {
+    if (rules[i].name == ruleName) {
+      rule = rules[i];
+      break;
+    }
+  }
+  return rule;
+}
+</code></pre>
+</body>
+</html>

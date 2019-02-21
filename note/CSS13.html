@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h3>精灵技术本质</h3>
+<p>简单地说，CSS精灵是一种处理网页背景图像的方式。它将一个页面涉及到的所有零星背景图像都集中到一张大图中去，然后将大图应用于网页，这样，当用户访问该页面时，只需向服务发送一次请求，网页中的背景图像即可全部展示出来。通常情况下，这个由很多小的背景图像合成的大图被称为精灵图（雪碧图）</p>
+<h3>精灵技术的使用</h3>
+<p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），然而，各个网页元素通常只需要精灵图中不同位置的某个小图，要想精确定位到精灵图中的某个小图，就需要使用CSS的background-image、background-repeat和background-position属性进行背景定位，其中最关键的是使用background-position属性精确地定位。</p>
+<h3>制作精灵图</h3>
+<p>CSS 精灵其实是将网页中的一些背景图像整合到一张大图中（精灵图），那我们要做的，就是把小图拼合成一张大图。</p>
+<p>&nbsp;</p>
+<h1>web字体</h1>
+<h2>字体格式</h2>
+<p>不同浏览器所支持的字体格式是不一样的。</p>
+<p>1、TureType(.ttf)格式</p>
+<p>.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome4+、Safari3+、Opera10+、iOS Mobile、Safari4.2+；</p>
+<p>2、OpenType(.otf)格式</p>
+<p>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，支持这种字体的浏览器有Firefox3.5+、Chrome4.0+、Safari3.1+、Opera10.0+、iOS Mobile、Safari4.2+；</p>
+<p>3、Web Open Font Format(.woff)格式</p>
+<p>woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离，支持这种字体的浏览器有IE9+、Firefox3.5+、Chrome6+、Safari3.6+、Opera11.1+；</p>
+<p>4、Embedded Open Type(.eot)格式</p>
+<p>.eot字体是IE专用字体，可以从TrueType创建此格式字体，支持这种字体的浏览器有IE4+；</p>
+<p>5、SVG(.svg)格式</p>
+<p>.svg字体是基于SVG字体渲染的一种格式，支持这种字体的浏览器有Chrome4+、Safari3.1+、Opera10.0+、iOS Mobile Safari3.2+；</p>
+<p>了解了上面的知识后，我们就需要为不同的浏览器准备不同格式的字体，通常我们会通过字体生成工具帮我们生成各种格式的字体，因此无需过于在意字体格式间的区别差异。</p>
+<h1>字体图标</h1>
+<p>图片是有诸多优点的，但是缺点很明显，比如图片不但增加了总文件的大小，还增加了很多额外的&quot;http请求&quot;，这都会大大降低网页的性能的。更重要的是图片不能很好的进行“缩放”，因为图片放大和缩小会失真。很多情况下希望我们的图标是可以缩放的。就是字体图标（iconfont)。</p>
+<h2>字体图标优点</h2>
+<pre><code>可以做出跟图片一样可以做的事情,改变透明度、旋转度，等..
+但是本质其实是文字，可以很随意的改变颜色、产生阴影、透明效果等等...
+本身体积更小，但携带的信息并没有削减。
+几乎支持所有的浏览器
+移动端设备必备良药...
+
+</code></pre>
+<h2>字体图标使用流程</h2>
+<h3>下载兼容字体包</h3>
+<p>刚才上传完毕， 网站会给我们把UI做的svg图片转换为我们的字体格式， 然后下载下来就好了</p>
+<p>当然，我们不需要自己专门的图标，是想网上找几个图标使用，以上2步可以直接省略了， 直接到刚才的网站上找喜欢的下载使用吧。</p>
+<h3>字体引入到HTML</h3>
+<p>得到压缩包之后，最后一步，是最重要的一步了， 就是字体文件已经有了，我们需要引入到我们页面中。</p>
+<ol>
+<li><p>首先把 以下4个文件放入到 fonts文件夹里面。 通俗的做法</p>
+<p>&nbsp;</p>
+<h5>第一步：在样式里面声明字体： 告诉别人我们自己定义的字体</h5>
+<pre><code class='language-css' lang='css'>@font-face {
+  font-family: &#39;icomoon&#39;;
+  src:  url(&#39;fonts/icomoon.eot?7kkyc2&#39;);
+  src:  url(&#39;fonts/icomoon.eot?7kkyc2#iefix&#39;) format(&#39;embedded-opentype&#39;),
+    url(&#39;fonts/icomoon.ttf?7kkyc2&#39;) format(&#39;truetype&#39;),
+    url(&#39;fonts/icomoon.woff?7kkyc2&#39;) format(&#39;woff&#39;),
+    url(&#39;fonts/icomoon.svg?7kkyc2#icomoon&#39;) format(&#39;svg&#39;);
+  font-weight: normal;
+  font-style: normal;
+}
+</code></pre>
+<h5>第二步：给盒子使用字体</h5>
+<pre><code class='language-css' lang='css'>span {
+		font-family: &quot;icomoon&quot;;
+	}
+</code></pre>
+<h5>第三步：盒子里面添加结构</h5>
+<pre><code class='language-css' lang='css'>span::before {
+		 content: &quot;\e900&quot;;
+	}
+或者  
+&lt;span&gt;&lt;/span&gt;  
+</code></pre>
+<h3>追加新图标到原来库里面</h3>
+<p>如果工作中，原来的字体图标不够用了，我们需要添加新的字体图标，但是原来的不能删除，继续使用，此时我们需要这样做</p>
+<p>把压缩包里面的selection.json 从新上传，然后，选中自己想要新的图标，从新下载压缩包，替换原来文件即可。</p>
+</li>
+
+</ol>
+</body>
+</html>

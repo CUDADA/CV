@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h3>函数闭包</h3>
+<pre><code class='language-javascript' lang='javascript'>function fn () {
+  var count = 0
+  return {
+    getCount: function () {
+      console.log(count)
+    },
+    setCount: function () {
+      count++
+    }
+  }
+}
+
+var fns = fn()
+
+fns.getCount() // =&gt; 0
+fns.setCount()
+fns.getCount() // =&gt; 1
+</code></pre>
+<h4>作用域、作用域链、预解析</h4>
+<ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+<li><strong>没有块级作用域</strong></li>
+
+</ul>
+<pre><code class='language-javascript' lang='javascript'>{
+  var foo = &#39;bar&#39;
+}
+
+console.log(foo)
+
+if (true) {
+  var a = 123
+}
+console.log(a)
+</code></pre>
+<p>作用域链示例代码：</p>
+<pre><code class='language-javascript' lang='javascript'>var a = 10
+
+function fn () {
+  var b = 20
+
+  function fn1 () {
+    var c = 30
+    console.log(a + b + c)
+  }
+
+  function fn2 () {
+    var d = 40
+    console.log(c + d)
+  }
+
+  fn1()
+  fn2()
+}
+</code></pre>
+<ul>
+<li>内层作用域可以访问外层作用域，反之不行</li>
+
+</ul>
+<h4>什么是闭包</h4>
+<p>闭包就是能够读取其他函数内部变量的函数，
+由于在 Javascript 语言中，只有函数内部的子函数才能读取局部变量，
+因此可以把闭包简单理解成 “定义在一个函数内部的函数”。
+所以，在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。</p>
+<p>闭包的用途：</p>
+<ul>
+<li>可以在函数外部读取函数内部成员</li>
+<li>让函数内成员始终存活在内存中</li>
+
+</ul>
+<h4>一些关于闭包的例子</h4>
+<p>示例1：</p>
+<pre><code class='language-javascript' lang='javascript'>var arr = [10, 20, 30]
+for(var i = 0; i &lt; arr.length; i++) {
+  arr[i] = function () {
+    console.log(i)
+  }
+}
+</code></pre>
+<p>示例2：</p>
+<pre><code class='language-javascript' lang='javascript'>console.log(111)
+
+for(var i = 0; i &lt; 3; i++) {
+  setTimeout(function () {
+    console.log(i)
+  }, 0)
+}
+console.log(222)
+</code></pre>
+<p>示例3：投票</p>
+<p>示例4：判断类型</p>
+<p>示例5：沙箱模式</p>
+<h4>闭包的思考题</h4>
+<p>思考题 1：</p>
+<pre><code class='language-javascript' lang='javascript'>var name = &quot;The Window&quot;;
+var object = {
+  name: &quot;My Object&quot;,
+  getNameFunc: function () {
+    return function () {
+      return this.name;
+    };
+  }
+};
+
+console.log(object.getNameFunc()())
+</code></pre>
+<p>思考题 2：</p>
+<pre><code class='language-javascript' lang='javascript'>var name = &quot;The Window&quot;;　　
+var object = {　　　　
+  name: &quot;My Object&quot;,
+  getNameFunc: function () {
+    var that = this;
+    return function () {
+      return that.name;
+    };
+  }
+};
+console.log(object.getNameFunc()())
+</code></pre>
+</body>
+</html>

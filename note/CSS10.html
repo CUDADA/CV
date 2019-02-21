@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>CSS 背景(background)</h1>
+<p>CSS 可以添加背景颜色和背景图片，以及来进行图片设置。</p>
+<figure><table>
+<thead>
+<tr><th>background-color</th><th>背景颜色</th></tr></thead>
+<tbody><tr><td>background-image</td><td>背景图片地址</td></tr><tr><td>background-repeat</td><td>是否平铺</td></tr><tr><td>background-position</td><td>背景位置</td></tr><tr><td>background-attachment</td><td>背景固定还是滚动</td></tr><tr><td>背景的合写（复合属性）</td><td>&nbsp;</td></tr><tr><td>background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置</td><td>&nbsp;</td></tr></tbody>
+</table></figure>
+<h2>背景图片(image)</h2>
+<p>语法： </p>
+<pre><code class='language-css' lang='css'>background-image : none | url (url) 
+</code></pre>
+<p>参数： </p>
+<p>none : 　无背景图（默认的）
+url : 　使用绝对或相对地址指定背景图像 </p>
+<p>background-image 属性允许指定一个图片展示在背景中（只有CSS3才可以多背景）可以和 background-color 连用。 如果图片不重复地话，图片覆盖不到地地方都会被背景色填充。 如果有背景图片平铺，则会覆盖背景颜色。</p>
+<p>小技巧：  我们提倡 背景图片后面的地址，url不要加引号。</p>
+<h2>背景平铺（repeat）</h2>
+<p>语法： </p>
+<pre><code class='language-css' lang='css'>background-repeat : repeat | no-repeat | repeat-x | repeat-y 
+</code></pre>
+<p>参数： </p>
+<p>repeat : 　背景图像在纵向和横向上平铺（默认的）</p>
+<p>no-repeat : 　背景图像不平铺</p>
+<p>repeat-x : 　背景图像在横向上平铺</p>
+<p>repeat-y : 　背景图像在纵向平铺 </p>
+<p>设置背景图片时，默认把图片在水平和垂直方向平铺以铺满整个元素。</p>
+<p>repeat-x : 　背景图像在横向上平铺  </p>
+<p>repeat-y : 　背景图像在纵向平铺 </p>
+<p>设置背景图片时，默认把图片在水平和垂直方向平铺以铺满整个元素。</p>
+<h2>背景位置(position)</h2>
+<p>语法： </p>
+<pre><code class='language-css' lang='css'>background-position : length || length
+
+background-position : position || position 
+</code></pre>
+<p>参数： </p>
+<p>length : 　百分数 | 由浮点数字和单位标识符组成的长度值。请参阅长度单位 
+position : 　top | center | bottom | left | center | right </p>
+<p>说明： </p>
+<p>设置或检索对象的背景图像位置。必须先指定background-image属性。默认值为：(0% 0%)。
+如果只指定了一个值，该值将用于横坐标。纵坐标将默认为50%。第二个值将用于纵坐标。</p>
+<p>注意：</p>
+<ol>
+<li>position 后面是x坐标和y坐标。 可以使用方位名词或者 精确单位。</li>
+<li>如果和精确单位和方位名字混合使用，则必须是x坐标在前，y坐标后面。比如 background-position: 15px top;   则 15px 一定是  x坐标   top是 y坐标。</li>
+
+</ol>
+<h2>背景附着</h2>
+<p>语法： </p>
+<pre><code class='language-css' lang='css'>background-attachment : scroll | fixed 
+</code></pre>
+<p>参数： </p>
+<p>scroll : 　背景图像是随对象内容滚动
+fixed : 　背景图像固定 </p>
+<p>说明： </p>
+<p>设置或检索背景图像是随对象内容滚动还是固定的。</p>
+<p>&nbsp;</p>
+<h2>背景简写</h2>
+<p>background:背景颜色 背景图片地址 背景平铺 背景滚动 背景位置</p>
+<pre><code class='language-css' lang='css'>background: transparent url(image.jpg) repeat-y  scroll 50% 0 ;
+</code></pre>
+<h2>背景透明(CSS3)</h2>
+<p>CSS3支持背景半透明的写法语法格式是:</p>
+<pre><code class='language-css' lang='css'>background: rgba(0,0,0,0.3);
+</code></pre>
+<p> 最后一个参数是alpha 透明度  取值范围 0~1之间</p>
+<p> 注意：  背景半透明是指盒子背景半透明， 盒子里面的内容不收影响。</p>
+</body>
+</html>

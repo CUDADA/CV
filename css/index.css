@@ -1,0 +1,107 @@
+body{
+    font-family: "Microsoft YaHei";
+}
+a:hover,a:active,a:focus{
+    text-decoration: none;
+}
+/*main*/
+.ad_aside{
+    width: 180px;
+    height: 100%;
+    background: #222d32;
+    position: absolute;
+}
+.ad_aside .note{
+    width: 100%;
+    height: 50px;
+    background: #367fa9;
+}
+.ad_aside .note a{
+    color: #fff;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+.ad_aside .menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.ad_aside .menu{
+    width: 100%;
+}
+.ad_aside .menu ul{
+    padding-top: 20px;
+}
+.ad_aside .menu ul li a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #aaa;
+    border: 3px solid transparent;
+    padding-left: 30px;
+    font-size: 16px;
+}
+.ad_aside .menu ul li .child a{
+    height: 30px;
+    line-height: 25px;
+    padding-left: 50px;
+    font-size: 14px;
+}
+.ad_section{
+    padding-left: 180px;
+}
+.ad_section.menu{
+    padding-left: 0;
+}
+.ad_section .ad_nav{
+    height: 50px;
+    background: #3c8dbc;
+    margin-bottom: 20px;
+}
+.ad_section .ad_nav a{
+    font-size: 16px;
+    color: #fff;
+    margin-top: 14px;
+}
+.ad_section .ad_nav a{
+    margin-left: 15px;
+    float: left;
+}
+/* .ad_section .ad_nav a:last-child{
+    margin-right: 15px;
+    float: right;
+} */
+
+.ad_content{
+    margin-top: 20px;
+}
+/* .ad_content .picTable{
+    float: left;
+    width: 45%;
+    height: 400px;
+}
+.ad_content .picTable:first-child{
+    margin-right: 10%;
+} */
+.ad_content .btn{
+    background: #fff;
+    position: absolute;
+    top: 8px;
+    right: 30px;
+}
+.table th,.table td{
+    text-align: center;
+    cursor: pointer;
+}
+/* .page{
+    text-align: right;
+}
+.page .pagination{
+    margin-top: 0;
+} */
+.blue{
+    background-color: #3c8dbc;
+}

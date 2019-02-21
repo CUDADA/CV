@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>jQuery  Class操作</h1>
+<h2>class方法</h2>
+<pre><code class='language-javascript' lang='javascript'>// 添加一个类
+    $(&quot;li&quot;).addClass(&quot;basic&quot;);
+//移除一个类
+    $(&quot;li&quot;).removeClass(&quot;bigger&quot;);
+//判断类
+	$(&quot;li&quot;).hasClass(&quot;bigger&quot;);   
+//判断li有没有basic类，如果有，就移除他，如果没有，添加他
+//toggle
+	$(&quot;li&quot;).toggleClass(&quot;basic&quot;);
+//attr(name, value)
+//设置单个属性
+	$(&quot;img&quot;).attr(&quot;alt&quot;, &quot;图破了&quot;);
+	$(&quot;img&quot;).attr(&quot;title&quot;, &quot;错错错错&quot;);    
+//设置多个属性
+    $(&quot;img&quot;).attr({
+      alt:&quot;图破了&quot;,
+      title:&quot;错错错&quot;,
+      aa:&quot;bb&quot;
+    })
+
+</code></pre>
+<h2>jQuery  其他属性操作</h2>
+<h2>val方法</h2>
+<blockquote><p>val方法用于设置和获取表单元素的值，例如input、textarea的值</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//设置值
+$(&quot;#name&quot;).val(“张三”);
+//获取值
+$(&quot;#name&quot;).val();
+</code></pre>
+<h2>html方法与text方法</h2>
+<blockquote><p>html方法相当于innerHTML  text方法相当于innerText</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//设置内容
+$(“div”).html(“&lt;span&gt;这是一段内容&lt;/span&gt;”);
+//获取内容
+$(“div”).html()
+
+//设置内容
+$(“div”).text(“&lt;span&gt;这是一段内容&lt;/span&gt;”);
+//获取内容
+$(“div”).text()
+</code></pre>
+<p>区别：html方法会识别html标签，text方法会那内容直接当成字符串，并不会识别html标签。</p>
+<h2>width方法与height方法</h2>
+<blockquote><p>设置或者获取高度</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//带参数表示设置高度
+$(“img”).height(200);
+//不带参数获取高度
+$(“img”).height();
+
+</code></pre>
+<p>获取网页的可视区宽高</p>
+<pre><code class='language-javascript' lang='javascript'>//获取可视区宽度
+$(window).width();
+//获取可视区高度
+$(window).height();
+</code></pre>
+<h2>scrollTop与scrollLeft</h2>
+<blockquote><p>设置或者获取垂直滚动条的位置</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//获取页面被卷曲的高度
+$(window).scrollTop();
+//获取页面被卷曲的宽度
+$(window).scrollLeft();
+</code></pre>
+<h2>offset方法与position方法</h2>
+<blockquote><p>offset方法获取元素距离document的位置，position方法获取的是元素距离有定位的父元素的位置。</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//获取元素距离document的位置,返回值为对象：{left:100, top:100}
+$(selector).offset();
+//获取相对于其最近的有定位的父元素的位置。
+$(selector).position();
+</code></pre>
+</body>
+</html>

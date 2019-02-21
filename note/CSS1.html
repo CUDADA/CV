@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>引入CSS样式表（书写位置）</h1>
+<p>CSS可以写到那个位置？ 是不是一定写到html文件里面呢？</p>
+<h2>内部样式表</h2>
+<p>内嵌式是将CSS代码集中写在HTML文档的head头部标签中，并且用style标签定义，其基本语法格式如下：</p>
+<pre><code class='language-html' lang='html'>&lt;head&gt;
+&lt;style type=&quot;text/CSS&quot;&gt;
+    选择器 {属性1:属性值1; 属性2:属性值2; 属性3:属性值3;}
+&lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<p>语法中，style标签一般位于head标签中title标签之后，也可以把他放在HTML文档的任何地方。</p>
+<p>type=&quot;text/CSS&quot;  在html5中可以省略， 写上也比较符合规范， 所以这个地方可以写也可以省略。</p>
+<h2>行内式（内联样式）</h2>
+<p>内联样式，又有人称行内样式、行间样式、内嵌样式。是通过标签的style属性来设置元素的样式，其基本语法格式如下：</p>
+<pre><code class='language-html' lang='html'>&lt;标签名 style=&quot;属性1:属性值1; 属性2:属性值2; 属性3:属性值3;&quot;&gt; 内容 &lt;/标签名&gt;
+</code></pre>
+<p>语法中style是标签的属性，实际上任何HTML标签都拥有style属性，用来设置行内式。其中属性和值的书写规范与CSS样式规则相同，行内式只对其所在的标签及嵌套在其中的子标签起作用。</p>
+<p>&nbsp;</p>
+<h2>外部样式表（外链式）</h2>
+<p>链入式是将所有的样式放在一个或多个以.CSS为扩展名的外部样式表文件中，通过link标签将外部样式表文件链接到HTML文档中，其基本语法格式如下：</p>
+<pre><code class='language-html' lang='html'>&lt;head&gt;
+  &lt;link href=&quot;CSS文件的路径&quot;  rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;
+</code></pre>
+<p>注意：  link 是个单标签哦!!!</p>
+<p>该语法中，link标签需要放在head头部标签中，并且必须指定link标签的三个属性，具体如下：</p>
+<pre><code>href：定义所链接外部样式表文件的URL，可以是相对路径，也可以是绝对路径。
+type：定义所链接文档的类型，在这里需要指定为“text/CSS”，表示链接的外部文件为CSS样式表。
+rel：定义当前文档与被链接文档之间的关系，在这里需要指定为“stylesheet”，表示被链接的文档是一个样式表文件。
+</code></pre>
+<h2>三种样式表总结（位置）</h2>
+<figure><table>
+<thead>
+<tr><th>样式表</th><th>优点</th><th>缺点</th><th>使用情况</th><th>控制范围</th></tr></thead>
+<tbody><tr><td>行内样式表</td><td>书写方便，权重高</td><td>没有实现样式和结构相分离</td><td>较少</td><td>控制一个标签（少）</td></tr><tr><td>内部样式表</td><td>部分结构和样式相分离</td><td>没有彻底分离</td><td>较多</td><td>控制一个页面（中）</td></tr><tr><td>外部样式表</td><td>完全实现结构和样式相分离</td><td>需要引入</td><td>最多，强烈推荐</td><td>控制整个站点（多）</td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<h1>CSS样式规则</h1>
+<p>使用HTML时，需要遵从一定的规范。CSS亦如此，要想熟练地使用CSS对网页进行修饰，首先需要了解CSS样式规则，具体格式如下：                                          </p>
+<p><img style="width:500px" src="images/gz.png" /></p>
+<pre><code>在上面的样式规则中:
+
+1.选择器用于指定CSS样式作用的HTML对象，花括号内是对该对象设置的具体样式。
+2.属性和属性值以“键值对”的形式出现。
+3.属性是对指定的对象设置的样式属性，例如字体大小、文本颜色等。
+4.属性和属性值之间用英文“:”连接。
+5.多个“键值对”之间用英文“;”进行区分。
+可以用段落 和 表格的对齐的演示。
+</code></pre>
+</body>
+</html>

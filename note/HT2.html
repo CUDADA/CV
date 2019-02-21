@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>列表标签</h1>
+<p>什么是列表？ </p>
+<p>容器里面装载着文字或图表的一种形式，叫列表。</p>
+<p>列表最大的特点就是  整齐 、整洁、 有序</p>
+<h2>无序列表 ul </h2>
+<p>无序列表的各个列表项之间没有顺序级别之分，是并列的。其基本语法格式如下：</p>
+<pre><code class='language-html' lang='html'>&lt;ul&gt;
+  &lt;li&gt;列表项1&lt;/li&gt;
+  &lt;li&gt;列表项2&lt;/li&gt;
+  &lt;li&gt;列表项3&lt;/li&gt;
+  ......
+&lt;/ul&gt;
+</code></pre>
+<p>比如下面这些，新闻是没有顺序的，不用排队，先到先得，后发布先显示。</p>
+<pre><code> 1. &lt;ul&gt;&lt;/ul&gt;中只能嵌套&lt;li&gt;&lt;/li&gt;，直接在&lt;ul&gt;&lt;/ul&gt;标签中输入其他标签或者文字的做法是不被允许的。
+ 2. &lt;li&gt;与&lt;/li&gt;之间相当于一个容器，可以容纳所有元素。
+ 3. 无序列表会带有自己样式属性，放下那个样式，一会让CSS来！
+
+</code></pre>
+<h2>有序列表 ol （了解）</h2>
+<p>有序列表即为有排列顺序的列表，其各个列表项按照一定的顺序排列定义，有序列表的基本语法格式如下：</p>
+<pre><code class='language-html' lang='html'>&lt;ol&gt;
+  &lt;li&gt;列表项1&lt;/li&gt;
+  &lt;li&gt;列表项2&lt;/li&gt;
+  &lt;li&gt;列表项3&lt;/li&gt;
+  ......
+&lt;/ol&gt;
+</code></pre>
+<p>  所有特性基本与ul 一致。  </p>
+<p>  但是实际工作中， 较少用 ol </p>
+<p>&nbsp;</p>
+<h2>自定义列表</h2>
+<p>定义列表常用于对术语或名词进行解释和描述，定义列表的列表项前没有任何项目符号。其基本语法如下：</p>
+<pre><code class='language-html' lang='html'>&lt;dl&gt;
+  &lt;dt&gt;名词1&lt;/dt&gt;
+  &lt;dd&gt;名词1解释1&lt;/dd&gt;
+  &lt;dd&gt;名词1解释2&lt;/dd&gt;
+  ...
+  &lt;dt&gt;名词2&lt;/dt&gt;
+  &lt;dd&gt;名词2解释1&lt;/dd&gt;
+  &lt;dd&gt;名词2解释2&lt;/dd&gt;
+  ...
+&lt;/dl&gt;
+</code></pre>
+</body>
+</html>

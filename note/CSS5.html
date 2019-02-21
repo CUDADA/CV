@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>CSS书写规范</h1>
+<h2>空格规范</h2>
+<p>【强制】 选择器 与 { 之间必须包含空格。</p>
+<p>示例： .selector { }</p>
+<p>【强制】 属性名 与之后的 : 之间不允许包含空格， : 与 属性值 之间必须包含空格。</p>
+<p>示例：</p>
+<p>font-size: 12px;</p>
+<h2>选择器规范</h2>
+<p>【强制】 当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行。</p>
+<p>示例：</p>
+<pre><code>/* good */
+.post,
+.page,
+.comment {
+    line-height: 1.5;
+}
+
+
+/* bad */
+.post, .page, .comment {
+    line-height: 1.5;
+}
+
+</code></pre>
+<p>【建议】 选择器的嵌套层级应不大于 3 级，位置靠后的限定条件应尽可能精确。</p>
+<p>示例：</p>
+<pre><code>/* good */
+#username input {}
+.comment .avatar {}
+
+/* bad */
+.page .header .login #username input {}
+.comment div * {}
+
+</code></pre>
+<h2>属性规范</h2>
+<p>【强制】 属性定义必须另起一行。</p>
+<p>示例：</p>
+<pre><code>/* good */
+.selector {
+    margin: 0;
+    padding: 0;
+}
+
+/* bad */
+.selector { margin: 0; padding: 0; }
+
+</code></pre>
+<p>【强制】 属性定义后必须以分号结尾。</p>
+<p>示例：</p>
+<pre><code>/* good */
+.selector {
+    margin: 0;
+}
+
+/* bad */
+.selector {
+    margin: 0
+}
+
+</code></pre>
+<h1>行高的测量</h1>
+<p><img style="width:500px" src="images/line1.png"  /></p>
+<p><img style="width:500px" src="images/line2.png"  /></p>
+<p>行高我们利用最多的一个地方是： 可以让一行文本在盒子中垂直居中对齐。</p>
+<p>做法就是： 文字的行高等于盒子的高度。</p>
+</body>
+</html>

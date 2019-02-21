@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>jQuery  操作</h1>
+<h2>css方法</h2>
+<blockquote><p>css方法用于css操作与获取</p>
+</blockquote>
+<pre><code class='language-javascript' lang='javascript'>//修改单个样式
+//name:样式名 value:样式值
+$(&quot;li&quot;)
+      .css(&quot;backgroundColor&quot;, &quot;pink&quot;)
+      .css(&quot;color&quot;, &quot;red&quot;)
+      .css(&quot;fontSize&quot;, &quot;32px&quot;);
+//css(obj)
+//修改多个样式
+$(&quot;li&quot;).css({
+      backgroundColor:&quot;pink&quot;,
+      color: &quot;red&quot;,
+      fontSize:&quot;32px&quot;,
+      border: &quot;1px solid black&quot;
+    });
+//获取样式
+//css(name)
+//name:想要获取的样式
+    $(&quot;li&quot;).eq(0).css(&quot;fontSize&quot;, &quot;20px&quot;);
+    $(&quot;li&quot;).eq(1).css(&quot;fontSize&quot;, &quot;21px&quot;);
+    $(&quot;li&quot;).eq(2).css(&quot;fontSize&quot;, &quot;22px&quot;);
+    $(&quot;li&quot;).eq(3).css(&quot;fontSize&quot;, &quot;23px&quot;);
+</code></pre>
+</body>
+</html>

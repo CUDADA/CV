@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的笔记本</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/nprogress/nprogress.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <!--侧边栏-->
+    <aside class="ad_aside">
+        <div class="note"><a href="index.html">笔记本</a></div>
+        <!--菜单-->
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="javascript:;"><span class="glyphicon glyphicon-list"></span> 我的笔记</a>
+                    <div class="child" style="display: none">
+                        <a href="javascript:;">HTML</a>
+                        <a href="javascript:;">CSS</a>
+                        <a href="javascript:;">JS</a>
+                        <a href="javascript:;">JQUERY</a>
+                        <a href="javascript:;">AJAX</a>
+                        <a href="javascript:;">HTML:5</a>
+                        <a href="javascript:;">CSS:3</a>
+                        <a href="javascript:;">Bootstrap</a>
+                        <a href="javascript:;">ES6</a>
+                        <a href="javascript:;">Flex</a>
+                        <a href="javascript:;">npm</a>
+                        <a href="javascript:;">Vue.js</a>
+                        <a href="javascript:;">react.js</a>
+                        <a href="javascript:;">node.js</a>
+                        <a href="javascript:;">webpack</a>
+                        <a href="javascript:;">...</a>
+                    </div>
+                </li>
+                <li><a href="javascript:;"><span class="glyphicon glyphicon-tags"></span> 笔记管理</a></li>
+            </ul>
+        </div>
+    </aside>
+    <!--内容-->
+    <section class="ad_section">
+        <!--顶部-->
+        <nav class="ad_nav">
+            <a data-menu href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+        </nav>
+        <!-- 笔记 -->
+        <div class="ad_content">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1 bg-primary">序号</th>
+                        <th class="col-md-11 bg-primary">笔记内容</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+            <button id="btn" data-toggle="modal" data-target="#addModal" class="btn btn-default mb_15">添加笔记</button>
+        </div>
+        <!-- 模态框 -->
+        <div class="modal fade" id="modal-note">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">我的笔记</h4>
+                    </div>
+                    <div class="modal-body" id="note-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="addModal">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                        <h4 class="modal-title">添加笔记</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" id="form">
+                            <div class="form-group">
+                                <div class="dropdown">
+                                    <span>笔记分类：</span>
+                                    <button class="btn btn-default" type="button" data-toggle="dropdown">
+                                        <span class="dropdown-text">请选择笔记分类</span> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">thml</a></li>
+                                        <li><a href="#">css</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                        <li><a href="#">js</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input name="noteName" type="text" class="form-control" placeholder="请输入笔记名称">
+                            </div>
+                            <div class="form-group">
+                                <div class="fileupload">
+                                    <a href="javascript:;" class="btn btn-default">选择上传笔记</a>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary" form="form">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script id="tmpl" type="text/x-art-template">
+        {{each comments}}
+        <tr>
+          <td>{{$index+1}}</td>
+          <td data-toggle="modal" data-target="#modal-note">{{$value}}</td>
+        </tr>
+    {{/each}}
+</script>
+    <script src="assets/jquery/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/artTemplate/template.js"></script>
+    <script src="assets/nprogress/nprogress.js"></script>
+    <script src="jss/index.js"></script>
+</body>
+
+</html>

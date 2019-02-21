@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>盒子模型（CSS重点）</h1>
+<p>CSS三个大模块：  盒子模型 、 浮动 、 定位。</p>
+<p>所谓盒子模型就是把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器。每个矩形都由元素的内容、内边距（padding）、边框（border）和外边距（margin）组成。</p>
+<h2>网页布局的本质</h2>
+<p>网页布局的本质：  把网页元素比如文字图片等等，放入盒子里面，然后利用CSS摆放盒子的过程，就是网页布局。</p>
+<h2>盒子模型（Box Model）</h2>
+<h2>盒子边框（border）</h2>
+<p>边框就是那层皮。  橘子皮。。柚子皮。。橙子皮。。。</p>
+<p>语法： </p>
+<pre><code class='language-css' lang='css'>border : border-width || border-style || border-color 
+</code></pre>
+<p>边框属性—设置边框样式（border-style）</p>
+<p>边框样式用于定义页面中边框的风格，常用属性值如下：</p>
+<pre><code>none：没有边框即忽略所有边框的宽度（默认值）
+
+solid：边框为单实线(最为常用的)
+
+dashed：边框为虚线  
+
+dotted：边框为点线
+
+double：边框为双实线
+
+</code></pre>
+<p>&nbsp;</p>
+<h3>盒子边框写法总结表</h3>
+<figure><table>
+<thead>
+<tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead>
+<tbody><tr><td>设置内容</td><td>样式属性</td><td>常用属性值</td></tr><tr><td>上边框</td><td>border-top-style:样式; border-top-width:宽度;border-top-color:颜色;border-top:宽度 样式 颜色;</td><td>&nbsp;</td></tr><tr><td>下边框</td><td>border-bottom-style:样式;border- bottom-width:宽度;border- bottom-color:颜色;border-bottom:宽度 样式 颜色;</td><td>&nbsp;</td></tr><tr><td>左边框</td><td>border-left-style:样式; border-left-width:宽度;border-left-color:颜色;border-left:宽度 样式 颜色;</td><td>&nbsp;</td></tr><tr><td>右边框</td><td>border-right-style:样式;border-right-width:宽度;border-right-color:颜色;border-right:宽度 样式 颜色;</td><td>&nbsp;</td></tr><tr><td>样式综合设置</td><td>border-style:上边 [右边 下边 左边];</td><td>none无（默认）、solid单实线、dashed虚线、dotted点线、double双实线</td></tr><tr><td>宽度综合设置</td><td>border-width:上边 [右边 下边 左边];</td><td>像素值</td></tr><tr><td>颜色综合设置</td><td>border-color:上边 [右边 下边 左边];</td><td>颜色值、#十六进制、rgb(r,g,b)、rgb(r%,g%,b%)</td></tr><tr><td>边框综合设置</td><td>border:四边宽度 四边样式 四边颜色;</td><td>&nbsp;</td></tr></tbody>
+</table></figure>
+<pre><code>	border-top: 1px solid red; /*上边框*/
+	border-bottom: 2px solid green; /*下边框*/
+	border-left: 1px solid blue;
+	border-right: 5px solid pink;
+	
+	border: 1px solid red;
+
+</code></pre>
+<h3>表格的细线边框</h3>
+<p>table{ border-collapse:collapse; }  collapse 单词是合并的意思</p>
+<p>border-collapse:collapse; 表示相邻边框合并在一起。</p>
+<h2>内边距（padding）</h2>
+<p>padding属性用于设置内边距。  是指 边框与内容之间的距离。</p>
+<p>padding-top:上内边距</p>
+<p>padding-right:右内边距</p>
+<p>padding-bottom:下内边距</p>
+<p>padding-left:左内边距</p>
+<p>注意：  后面跟几个数值表示的意思是不一样的。</p>
+<figure><table>
+<thead>
+<tr><th>值的个数</th><th>表达意思</th></tr></thead>
+<tbody><tr><td>1个值</td><td>padding：上下左右边距 比如padding: 3px; 表示上下左右都是3像素</td></tr><tr><td>2个值</td><td>padding: 上下边距 左右边距 比如 padding: 3px 5px; 表示 上下3像素 左右 5像素</td></tr><tr><td>3个值</td><td>padding：上边距 左右边距 下边距 比如 padding: 3px 5px 10px; 表示 上是3像素 左右是5像素 下是10像素</td></tr><tr><td>4个值</td><td>padding:上内边距 右内边距 下内边距 左内边距 比如: padding: 3px 5px 10px 15px; 表示 上3px 右是5px 下 10px 左15px 顺时针</td></tr></tbody>
+</table></figure>
+<h2>外边距（margin）</h2>
+<p>margin属性用于设置外边距。  设置外边距会在元素之间创建“空白”， 这段空白通常不能放置其他内容。</p>
+<p>margin-top:上外边距</p>
+<p>margin-right:右外边距</p>
+<p>margin-bottom:下外边距</p>
+<p>margin-left:上外边距</p>
+<p>margin:上外边距 右外边距  下外边距  左外边</p>
+<p>取值顺序跟内边距相同。</p>
+<h3>外边距实现盒子居中</h3>
+<p>可以让一个盒子实现水平居中，需要满足一下两个条件：</p>
+<ol>
+<li>必须是块级元素。     </li>
+<li>盒子必须指定了宽度（width）</li>
+
+</ol>
+<p>然后就给<strong>左右的外边距都设置为auto</strong>，就可使块级元素水平居中。</p>
+<p>实际工作中常用这种方式进行网页布局，示例代码如下：</p>
+<pre><code class='language-css' lang='css'>.header{ width:960px; margin:0 auto;}
+</code></pre>
+<h3>文字盒子居中图片和背景区别</h3>
+<ol>
+<li>文字水平居中是  text-align: center</li>
+<li>盒子水平居中  左右margin 改为 auto </li>
+
+</ol>
+<pre><code class='language-css' lang='css'>text-align: center; /*  文字居中水平 */
+margin: 10px auto;  /* 盒子水平居中  左右margin 改为 auto 就阔以了 */
+</code></pre>
+<ol>
+<li>插入图片 我们用的最多 比如产品展示类</li>
+<li>背景图片我们一般用于小图标背景 或者 超大背景图片</li>
+
+</ol>
+<pre><code class='language-css' lang='css'>section img {  
+		width: 200px;/* 插入图片更改大小 width 和 height */
+		height: 210px;
+		margin-top: 30px;  /* 插入图片更改位置 可以用margin 或padding  盒模型 */
+		margin-left: 50px; /* 插入当图片也是一个盒子 */
+	}
+
+aside {
+		width: 400px;
+		height: 400px;
+		border: 1px solid purple;
+		background: #fff url(images/sun.jpg) no-repeat;
+	
+		background-size: 200px 210px; /*  背景图片更改大小只能用 background-size */
+		background-position: 30px 50px; /* 背景图片更该位置 我用 background-position */
+	}
+</code></pre>
+<p>&nbsp;</p>
+<h3>清除元素的默认内外边距</h3>
+<p>为了更方便地控制网页中的元素，制作网页时，可使用如下代码清除元素的默认内外边距： </p>
+<pre><code class='language-css' lang='css'>* {
+   padding:0;         /* 清除内边距 */
+   margin:0;          /* 清除外边距 */
+}
+</code></pre>
+<p>注意：  行内元素是只有左右外边距的，是没有上下外边距的。 内边距，在ie6等低版本浏览器也会有问题。</p>
+<p>我们尽量不要给行内元素指定上下的内外边距就好了。</p>
+<h2>外边距合并</h2>
+<p>使用margin定义块元素的垂直外边距时，可能会出现外边距的合并。</p>
+<h3>相邻块元素垂直外边距的合并</h3>
+<p>当上下相邻的两个块元素相遇时，如果上面的元素有下外边距margin-bottom，下面的元素有上外边距margin-top，则他们之间的垂直间距不是margin-bottom与margin-top之和，而是两者中的较大者。这种现象被称为相邻块元素垂直外边距的合并（也称外边距塌陷）。</p>
+<p>解决方案：  避免就好了。</p>
+<h3>嵌套块元素垂直外边距的合并</h3>
+<p>对于两个嵌套关系的块元素，如果父元素没有上内边距及边框，则父元素的上外边距会与子元素的上外边距发生合并，合并后的外边距为两者中的较大者，即使父元素的上外边距为0，也会发生合并。</p>
+<p><img style="width:500px" src="imges/n.png" /></p>
+<p>解决方案：</p>
+<ol>
+<li>可以为父元素定义1像素的上边框或上内边距。</li>
+<li>可以为父元素添加overflow:hidden。</li>
+
+</ol>
+<p>待续。。。。</p>
+<h2>content宽度和高度</h2>
+<p>使用宽度属性width和高度属性height可以对盒子的大小进行控制。</p>
+<p>width和height的属性值可以为不同单位的数值或相对于父元素的百分比%，实际工作中最常用的是像素值。</p>
+<p>大多数浏览器，如Firefox、IE6及以上版本都采用了W3C规范，符合CSS规范的盒子模型的总宽度和总高度的计算原则是：</p>
+<pre><code>  /*外盒尺寸计算（元素空间尺寸）*/
+  Element空间高度 = content height + padding + border + margin
+  Element 空间宽度 = content width + padding + border + margin
+  /*内盒尺寸计算（元素实际大小）*/
+  Element Height = content height + padding + border （Height为内容高度）
+  Element Width = content width + padding + border （Width为内容宽度）
+
+</code></pre>
+<p>注意：</p>
+<p>1、宽度属性width和高度属性height仅适用于块级元素，对行内元素无效（ img 标签和 input除外）。</p>
+<p>2、计算盒子模型的总高度时，还应考虑上下两个盒子垂直外边距合并的情况。</p>
+<p>3、<strong>如果一个盒子则会和父亲一样宽 占满父亲的宽度， 如果此盒子没有给定宽度 则padding 不会影响本盒子大小</strong>。</p>
+<h2>盒子模型布局稳定性</h2>
+<p>开始学习盒子模型，同学们最大的困惑就是， 分不清内外边距的使用，什么情况下使用内边距，什么情况下使用外边距？</p>
+<p>答案是：  其实他们大部分情况下是可以混用的。  就是说，你用内边距也可以，用外边距也可以。 你觉得哪个方便，就用哪个。</p>
+<p>但是，总有一个最好用的吧，我们根据稳定性来分，建议如下：</p>
+<p>按照 优先使用  宽度 （width）  其次 使用内边距（padding）    再次  外边距（margin）。   </p>
+<pre><code>  width &gt;  padding  &gt;   margin   
+
+</code></pre>
+<p>原因：</p>
+<ol>
+<li>margin 会有外边距合并 还有 ie6下面margin 加倍的bug（讨厌）所以最后使用。</li>
+<li>padding  会影响盒子大小， 需要进行加减计算（麻烦） 其次使用。</li>
+<li>width   没有问题（嗨皮）我们经常使用宽度剩余法 高度剩余法来做。</li>
+
+</ol>
+<h2>圆角边框(CSS3)</h2>
+<p>从此以后，我们的世界不只有矩形。radius 半径（距离）</p>
+<p>语法格式：</p>
+<pre><code class='language-css' lang='css'>border-radius: 50%;   让一个正方形  变成圆圈
+</code></pre>
+<p>&nbsp;</p>
+<h2>盒子阴影(CSS3)</h2>
+<p>语法格式：</p>
+<pre><code class='language-css' lang='css'>box-shadow:水平阴影 垂直阴影 模糊距离（虚实）  阴影尺寸（影子大小）  阴影颜色  内/外阴影；
+</code></pre>
+<p><img style="width:500px" src='imges/1498467567011.png' alt='1498467567011' referrerPolicy='no-referrer' /></p>
+<ol>
+<li>前两个属性是必须写的。其余的可以省略。</li>
+<li>外阴影 (outset) 但是不能写    默认      想要内阴影  inset </li>
+
+</ol>
+<pre><code class='language-css' lang='css'>div {
+			width: 200px;
+			height: 200px;
+			border: 10px solid red;
+			/* box-shadow: 5px 5px 3px 4px rgba(0, 0, 0, .4);  */
+			/* box-shadow:水平位置 垂直位置 模糊距离 阴影尺寸（影子大小） 阴影颜色  内/外阴影； */
+			box-shadow: 0 15px 30px  rgba(0, 0, 0, .4);
+			
+}
+</code></pre>
+<h1></h1>
+</body>
+</html>

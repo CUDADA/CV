@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h1>选择器</h1>
+<h2>什么是jQuery选择器</h2>
+<p>jQuery选择器是jQuery为我们提供的一组方法，让我们更加方便的获取到页面中的元素。注意：jQuery选择器返回的是jQuery对象。</p>
+<p>jQuery选择器有很多，基本兼容了CSS1到CSS3所有的选择器，并且jQuery还添加了很多更加复杂的选择器。【查看jQuery文档】</p>
+<p>jQuery选择器虽然很多，但是选择器之间可以相互替代，就是说获取一个元素，你会有很多种方法获取到。所以我们平时真正能用到的只是少数的最常用的选择器。</p>
+<p>&nbsp;</p>
+<h2>基本选择器</h2>
+<figure><table>
+<thead>
+<tr><th>名称</th><th>用法</th><th style='text-align:left;' >描述</th></tr></thead>
+<tbody><tr><td>ID选择器</td><td>$(“#id”);</td><td style='text-align:left;' >获取指定ID的元素</td></tr><tr><td>类选择器</td><td>$(“.class”);</td><td style='text-align:left;' >获取同一类class的元素</td></tr><tr><td>标签选择器</td><td>$(“div”);</td><td style='text-align:left;' >获取同一类标签的所有元素</td></tr><tr><td>并集选择器</td><td>$(“div,p,li”);</td><td style='text-align:left;' >使用逗号分隔，只要符合条件之一就可。</td></tr><tr><td>交集选择器</td><td>$(“div.redClass”);</td><td style='text-align:left;' >获取class为redClass的div元素</td></tr></tbody>
+</table></figure>
+<blockquote><p>总结：跟css的选择器用法一模一样。</p>
+</blockquote>
+<p>&nbsp;</p>
+<h2>层级选择器</h2>
+<figure><table>
+<thead>
+<tr><th>名称</th><th>用法</th><th style='text-align:left;' >描述</th></tr></thead>
+<tbody><tr><td>子代选择器</td><td>$(“ul&gt;li”);</td><td style='text-align:left;' >使用&gt;号，获取儿子层级的元素，注意，并不会获取孙子层级的元素</td></tr><tr><td>后代选择器</td><td>$(“ul li”);</td><td style='text-align:left;' >使用空格，代表后代选择器，获取ul下的所有li元素，包括孙子等</td></tr></tbody>
+</table></figure>
+<p>&nbsp;</p>
+<blockquote><p>跟CSS的选择器一模一样。</p>
+</blockquote>
+<h2>过滤选择器</h2>
+<blockquote><p>这类选择器都带冒号:</p>
+</blockquote>
+<figure><table>
+<thead>
+<tr><th>名称</th><th>用法</th><th style='text-align:left;' >描述</th></tr></thead>
+<tbody><tr><td>:eq（index）</td><td>$(“li:eq(2)”).css(“color”, ”red”);</td><td style='text-align:left;' >获取到的li元素中，选择索引号为2的元素，索引号index从0开始。</td></tr><tr><td>:odd</td><td>$(“li:odd”).css(“color”, ”red”);</td><td style='text-align:left;' >获取到的li元素中，选择索引号为奇数的元素</td></tr><tr><td>:even</td><td>$(“li:even”).css(“color”, ”red”);</td><td style='text-align:left;' >获取到的li元素中，选择索引号为偶数的元素</td></tr></tbody>
+</table></figure>
+<p>【案例：隔行变色】</p>
+<h2>筛选选择器(方法)</h2>
+<blockquote><p>筛选选择器的功能与过滤选择器有点类似，但是用法不一样，筛选选择器主要是方法。</p>
+</blockquote>
+<figure><table>
+<thead>
+<tr><th>名称</th><th>用法</th><th style='text-align:center;' >描述</th></tr></thead>
+<tbody><tr><td>children(selector)</td><td>$(“ul”).children(“li”)</td><td style='text-align:center;' >相当于$(“ul&gt;li”)，子类选择器</td></tr><tr><td>find(selector)</td><td>$(“ul”).find(“li”);</td><td style='text-align:center;' >相当于$(“ul li”),后代选择器</td></tr><tr><td>siblings(selector)</td><td>$(“#first”).siblings(“li”);</td><td style='text-align:center;' >查找兄弟节点，不包括自己本身。</td></tr><tr><td>parent()</td><td>$(“#first”).parent();</td><td style='text-align:center;' >查找父亲</td></tr><tr><td>eq(index)</td><td>$(“li”).eq(2);</td><td style='text-align:center;' >相当于$(“li:eq(2)”),index从0开始</td></tr><tr><td>next()</td><td>$(“li”).next()</td><td style='text-align:center;' >找下一个兄弟</td></tr><tr><td>prev()</td><td>$(“li”).prev()</td><td style='text-align:center;' >找上一次兄弟</td></tr></tbody>
+</table></figure>
+</body>
+</html>

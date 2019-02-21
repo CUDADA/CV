@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title></head>
+<body><h3>函数递归</h3>
+<h4>递归执行模型</h4>
+<pre><code class='language-javascript' lang='javascript'>function fn1 () {
+  console.log(111)
+  fn2()
+  console.log(&#39;fn1&#39;)
+}
+
+function fn2 () {
+  console.log(222)
+  fn3()
+  console.log(&#39;fn2&#39;)
+}
+
+function fn3 () {
+  console.log(333)
+  fn4()
+  console.log(&#39;fn3&#39;)
+}
+
+function fn4 () {
+  console.log(444)
+  console.log(&#39;fn4&#39;)
+}
+
+fn1()
+</code></pre>
+<h4>举个栗子：计算阶乘的递归函数</h4>
+<pre><code class='language-javascript' lang='javascript'>function factorial (num) {
+  if (num &lt;= 1) {
+    return 1
+  } else {
+    return num * factorial(num - 1)
+  }
+}
+</code></pre>
+<h4>递归应用场景</h4>
+<ul>
+<li>深拷贝</li>
+<li>菜单树</li>
+<li>遍历 DOM 树</li>
+
+</ul>
+</body>
+</html>
