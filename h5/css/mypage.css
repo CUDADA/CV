@@ -1,0 +1,232 @@
+﻿html,
+body,
+.section {
+    min-height: 600px;
+    min-width: 1200px;
+}
+
+/* 第二屏幕开始 */
+.section1 {
+    background: #fadd67 url(../images/one.png) no-repeat center bottom;
+
+}
+.section2 {
+    background: #84a2d4 url(../images/two.png) no-repeat center bottom;
+    z-index: 2;
+}
+.section2 .man {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+}
+
+.messages {
+    width: 600px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.messages img {
+    position: absolute;
+    width: 250px;
+    display: none;
+}
+
+/* .messages .wo{
+    width: 80px;height: 80px;
+    position: absolute;
+    top: 8%;
+    left: 23%;
+    opacity: 0;
+} */
+
+.messages p {
+    position: absolute;
+    text-shadow: 4px 4px 8px #000;
+    font-size: 30px;
+    z-index: 999;
+    opacity: 0;
+}
+
+.messages .listOne {
+    top: 50px;
+    left: 40px;
+}
+
+.messages .p-1 {
+    left: 100px;
+    top: 27px;
+}
+
+.messages .listTwo {
+    top: 100px;
+    right: 40px;
+}
+
+.messages .p-2 {
+    right: 100px;
+    top: 78px;
+}
+
+.messages .listThree {
+    top: 150px;
+    left: 40px;
+}
+
+.messages .p-3 {
+    font-size: 15px;
+    left: 92px;
+    top: 155px;
+}
+
+.messages .listFour {
+    top: 200px;
+    right: 40px;
+}
+
+.messages .p-4 {
+    font-size: 16px;
+    right: 75px;
+    top: 203px;
+}
+
+/* 第二屏幕结束 */
+/* 第三屏幕开始 */
+.section3 {
+    background: #84d9ed url(../images/three.png) no-repeat 25% 100%;
+}
+
+.section3 .box {
+    width: 100px;
+    position: absolute;
+    bottom: 300px;
+    left: 50px;
+    z-index: 1;
+}
+
+.section3 .h5 {
+    width: 130px;
+    position: absolute;
+    bottom: 500px;
+    left: 500px;
+    display: none;
+}
+
+.section3 .c3 {
+    width: 130px;
+    position: absolute;
+    bottom: 400px;
+    left: 500px;
+    display: none;
+}
+
+.section3 .js {
+    width: 130px;
+    position: absolute;
+    bottom: 450px;
+    left: 500px;
+    display: none;
+}
+/* 第三屏幕结束 */
+/* 第四屏开始 */
+.section4 {
+    background: #fed url(../images/four.png) no-repeat center bottom;
+
+}
+.callMe {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 365px;
+}
+
+.call-a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.toTop {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 105px;
+    height: 34px;
+}
+
+.hand04 {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 9999;
+}
+
+/* 第四屏幕结束 */
+.myPhoto {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+}
+
+.next {
+    position: fixed;
+    bottom: 120px;
+    right: 8%;
+}
+
+/* 动画 */
+.next_undown {
+    animation: next 1s ease infinite;
+    /*  linear 匀速 */
+
+}
+
+@keyframes next {
+    /* 类似于js 的声明函数 function */
+
+    50% {
+
+        bottom: 100px;
+    }
+
+    100% {
+        bottom: 120px;
+    }
+}
+
+.circle {
+    animation: circle 1s ease infinite;
+
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 25px;
+    font-style: normal;
+    color: #ccc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/iconfont.woff2') format('woff2'),
+        url('../font/iconfont.woff') format('woff'),
+        url('../font/iconfont.ttf') format('truetype'),
+        url('../font/iconfont.svg#iconfont') format('svg');
+  }
